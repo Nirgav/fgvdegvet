@@ -17,7 +17,7 @@
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/jaypatel9912/loadingImages.git
+git clone https://github.com/jaypatel9912/LoadingImages.git
 ```
 
 2. **Navigate to the project directory:**
