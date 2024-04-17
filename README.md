@@ -1,11 +1,16 @@
 
 **Project Name**
 
-*A short description of what your project does.*
+*Loading Images.*
 
 **Description**
 
-*A detailed description of your project, including its functionality and key features.*
+- using the Ktor dependency to get network responses.
+- Using the Koin framework for dependency injection.
+- Gradle Kotlin DSL setup.
+- dependency versions managed via the version catalogue (libs.version.toml).
+- Use the 5 Koin module (network module,API module, repositories module, usecases module,viewModeModule).
+
 
 **Getting Started**
 
@@ -42,17 +47,13 @@ This section provides an overview of your project's codebase organization. Brief
     * `PhotoRepositoryImpl.kt`: This file implements the logic for retrieving photos, potentially interacting with both `ApiService` and `CacheStore` for optimal data access.
     * `PhotosUseCasesImpl.kt`: This file houses the UseCase implementations for fetching photos, encapsulating specific business logic of the application.
 
-**Usage**
+*Cache logic*
+```bash
+    val imageUrl = URL(url)
+    val inputStream = imageUrl.openConnection().getInputStream()
+    val bitmap = BitmapFactory.decodeStream(inputStream)
 
-*Convert image url to bitmap*
-  ```> [!NOTE]
-  val imageUrl = URL(url)
-  val inputStream = imageUrl.openConnection().getInputStream()
-  val bitmap = BitmapFactory.decodeStream(inputStream)
-
-
-    > [!NOTE]
-    > fun saveImage(bitmap: Bitmap, context: Context, imageId: String?) {
+     fun saveImage(bitmap: Bitmap, context: Context, imageId: String?) {
         val storageDir: File = context.cacheDir
          val filePath = File(storageDir, "$imageId.jpg").path
        try {
@@ -78,6 +79,10 @@ This section provides an overview of your project's codebase organization. Brief
          }
       }
     return listFiles
+    }
+```
+
+**Usage**
 
 * Describe the app's functionalities and user interactions in a clear and concise way. Here are some potential points to cover based on your descriptions:
     * Offline functionality (displaying cached images)
@@ -85,5 +90,9 @@ This section provides an overview of your project's codebase organization. Brief
     * Pagination for loading more images
     * Toast messages for network connectivity issues
     * "Back to Top" view functionality (if applicable)
-* Structure the usage instructions into numbered steps or a bulleted list for better readability.
+
+
+
+
+
 
